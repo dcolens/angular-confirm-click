@@ -45,7 +45,11 @@
               $timeout.cancel(promise);
               element.css({ opacity: '0.5' });
               element.removeClass('confirming');
-              return scope.$parent.$apply(attrs.confirmClick);
+              scope.$parent.$apply(attrs.confirmClick);
+              element.css({ opacity: '1' });
+              hasConfirmed = false;
+              scope.confirmingAction = false;
+              return;
             }
           });
         }
